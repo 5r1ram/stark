@@ -29,10 +29,11 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-
-      - name: Move build files
-        run: |
-          mv ./.next/standalone ./build
+          mv ./build/static ./build/standalone/build
+          
+      # - name: Move build files
+      #   run: |
+      #     mv ./.next/standalone ./build
           
       - name: Zip artifact for deployment
         run: zip -r release.zip ./build
